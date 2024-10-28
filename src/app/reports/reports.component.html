@@ -1,0 +1,26 @@
+<h3> Hello {{loggedInUser}} </h3>
+<!-- <h2 *ngIf="true"> Looks like schedule for report generation is not been initiallised yet, Want to <span (click)="startSchedule()"> start </span>? </h2> -->
+<h2 *ngIf="usersData===undefined"> Looks like schedule for report generation is not been initiallised yet, Want to <span (click)="startSchedule()"> start </span>? </h2>
+<table *ngIf="usersData!=undefined">
+    <tr>
+        <th> Reports are generating for: </th>
+        <td> {{usersData.types|typeFormatter}} </td>
+    </tr>
+    <tr>
+        <th> Reports are getting delivered at: </th>
+        <td> {{usersData.emails|mailFormatter}} </td>
+    </tr>
+    <tr *ngIf="usersData.vehicles.length!=0">
+        <th> Ve are generating for: </th>
+        <td> {{usersData.types|typeFormatter}} </td>
+    </tr>
+    <tr *ngIf="day===undefined">
+        <th> Report is getting delivered on: </th>
+        <td>On the <b> {{day}} </b> of <b>{{usersData.schedule.scheduleType}},</b> at <b>{{usersData.schedule.scheduleTiming|uppercase}}</b></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="startModal()"> Edit </button>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,22 @@
+<div class="app-container">
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="Logo.png" alt="">
+    </div>
+    <div class="mid">
+      <a href="health">Vehicle Health</a>
+      <a href="score-card">Driving Scorecard</a>
+      <a href="dir-report">Director's Report</a>
+      <a href="reports">Reports Section</a>
+    </div>
+    <div class="right">
+      <!-- <a href="login">Login</a> -->
+      <a (click)="showLoginWindow()" *ngIf="!isUserLoggedIn">Login</a>
+      <a (click)="logout()" *ngIf="isUserLoggedIn">Logout</a>
+    </div>
+</div>
+
+  <router-outlet />
+  
+</div>

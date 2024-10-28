@@ -1,0 +1,366 @@
+.container {
+
+    border-radius: 10px;
+    padding: 5vh;
+    width: 40vw;
+    background-color: white;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1vh;
+        align-items: center;
+        height: auto;
+        margin-bottom: 0.5vh;
+
+        span {
+            font-weight: 700;
+            margin: 0;
+            font-size: 3vh;
+        }
+
+        .right {
+
+            display: flex;
+            float: right;
+            justify-content: space-between;
+            width: 25%;
+            .editOption {
+
+                display: flex;
+
+                img {
+                    cursor: pointer;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                p {
+                    cursor: pointer;
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #3B96F3;
+                    margin: 0;
+                }
+
+            }
+
+            .close {
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+            }
+
+        }
+
+    }
+
+    table {
+        width: 100%;
+
+        th {
+            width: 30%;
+            padding: 1vh;
+        }
+
+        td {
+            width: 70%;
+            padding: 1vh;
+        }
+    }
+
+    .setTime {
+        display: flex;
+        justify-content: space-between;
+        height: min-content;
+
+        h6 {
+            font-size: 20px;
+            margin: 0;
+            padding-top: 15px;
+        }
+
+        .time {
+            justify-content: end;
+            display: flex;
+            align-items: start;
+
+            .clock {
+
+                background: #EBF5FF;
+                display: flex;
+                padding-left: 1vh;
+                padding-right: 0.8vh;
+                margin-right: 1vw;
+                border-radius: 10px;
+                height: 48px;
+                padding-top: 5px;
+                width: 7vw;
+                justify-content: space-evenly;
+
+                .arrows {
+                    display: flex;
+                    flex-direction: column;
+
+                    img {
+                        height: 20px;
+                        cursor: pointer;
+                    }
+
+                    #down {
+                        transform: rotate(180deg);
+                    }
+
+                }
+
+                span {
+                    height: 25px;
+                    font-size: 23px;
+                    color: #101B73;
+                    font-weight: 700;
+                    padding-top: 0.2vh;
+                }
+            }
+
+            .meridianToggle {
+                display: block;
+                height: 50px;
+
+                .button {
+                    background-color: #EBF5FF;
+                    width: 75px;
+                    height: 48px;
+                    border-radius: 11px;
+                    cursor: pointer;
+                    position: relative;
+                    transition: 0.2s;
+
+                    pre {
+                        font-weight: 400;
+                        color: #101B73;
+                        overflow: hidden;
+                        margin: 0;
+                        padding-left: 3px;
+                        padding-bottom: 2px;
+                        padding-top: 0.7vh;
+                    }
+
+                    &:before {
+                        position: absolute;
+                        content: 'AM';
+                        text-align: center;
+                        font-weight: 700;
+                        color: #ffffff;
+                        background-color: #101B73;
+                        width: 75px;
+                        height: 26px;
+                        border-radius: 22px;
+                        transition: 0.2s;
+                        padding-top: 2px;
+                    }
+                }
+
+                input:checked+.button {
+                    &:before {
+                        background-color: #101B73;
+                        transform: translateY(25px);
+                        content: 'PM';
+                    }
+                }
+
+                input {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .timeFn {
+        margin-top: 1vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h6 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .timeSkip {
+            width: 15vw;
+            display: flex;
+            justify-content: space-evenly;
+            height: 22px;
+
+            .toggleContainer {
+
+                height: 22px;
+
+                .button {
+                    background-color: #EBF5FF;
+                    width: 45px;
+                    height: 22px;
+                    border-radius: 22px;
+                    cursor: pointer;
+                    position: relative;
+                    transition: 0.2s;
+
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        background-color: #ccc;
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 22px;
+                        transition: 0.2s;
+                    }
+                }
+
+                input:checked+.button {
+
+                    &:before {
+                        background-color: #101B73;
+                        transform: translateX(24px);
+                    }
+
+                }
+
+                input {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .timeInterval {
+
+        margin: 15px 0;
+
+        .showWeeks {
+            height: 8vh;
+            width: auto;
+            background-color: #EBF5FF;
+            align-items: center;
+            display: flex;
+            padding: 2vh;
+            border-radius: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+
+            span {
+                padding: 1vh 1.5vw;
+                border-radius: 20px;
+
+                &:hover {
+                    background-color: #101B73;
+                    color: #f8f8f8;
+                }
+
+                &.active {
+                    background-color: #101B73;
+                    color: #f8f8f8;
+                }
+            }
+        }
+
+        .option-for-selection {
+            ol {
+
+                background-color: #EBF5FF;
+                color: #000000;
+                font-weight: 400;
+                padding: 0;
+                border-radius: 10px;
+
+                li {
+                    font-size: 15px;
+                    padding: 5px;
+                    padding-left: 34px;
+                    color: black;
+                    list-style-type: none;
+
+                    &:hover {
+                        background-color: #101B73;
+                        color: #f8f8f8;
+
+                        &:nth-child(1) {
+                            border-radius: 10px 10px 0 0;
+                        }
+
+                        &:nth-child(3) {
+                            border-radius: 0 0 10px 10px;
+                        }
+                    }
+
+                    &.active {
+                        background-color: #101B73;
+                        color: #f8f8f8;
+                    }
+
+                }
+
+                .dateSelection{
+                    width: auto;
+                }
+
+            }
+        }
+
+        label {
+            font-weight: 400;
+            color: #242424;
+            padding-left: 10px;
+        }
+
+        p {
+            float: right;
+            color: #c4c4c4;
+            font-style: italic;
+            font-size: 15px;
+            margin: 0;
+        }
+
+    }
+
+    .btns {
+        display: flex;
+        justify-content: end;
+
+        button {
+            height: 6vh;
+            font-size: 2.5vh;
+            padding: 1vh 3vh;
+            margin: 1vh;
+            border-radius: 10px;
+
+            &:nth-child(odd) {
+                background-color: white;
+                color: #101B73;
+                border: 1px #101B73 solid;
+                font-weight: 700;
+            }
+
+            &:nth-child(even) {
+                background-color: #101B73;
+                color: #ffffff;
+                border: 1px #101B73 solid;
+                font-weight: 700;
+            }
+
+
+        }
+
+    }
+}
+
+.selected {
+    background-color: #101B73;
+    color: #c4c4c4;
+}
+
+.unselected {
+    background-color: #EBF5FF;
+    border-radius: 0 0 10px 10px;
+    color: #000000;
+}

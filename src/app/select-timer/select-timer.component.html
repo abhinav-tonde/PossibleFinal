@@ -1,0 +1,135 @@
+<div class="container">
+
+    <div class="header">
+
+        <span>Schedule Reports</span>
+
+        <div class="right">
+
+            <div class="editOption">
+                <img src="Edit Blue.png" alt="">
+                <!-- 15px wght700 -->
+                <p>Edit</p>
+            </div>
+            
+            <img src="Close Dark.png" alt="" class="close"  (click)="activeModal.close('Close click')">
+        
+        </div>
+
+    </div>
+
+    <table>
+        <tr>
+            <th>Report Types</th>
+            <td>{{type|typeFormatter}}</td>
+        </tr>
+        <tr>
+            <th>Vehicles</th>
+            <td>{{vehicle|vehicles}}</td>
+        </tr>
+        <tr>
+            <th>Mailed to</th>
+            <td>{{mail|mailFormatter}}</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <div class="setTime">
+        <h6>Set Time</h6>
+        <div class="time">
+            <div class="clock">
+                <span> {{hr|number:'2.0'}}:{{min|number:'2.0'}} </span>
+                <div class="arrows">
+                    <img src="Up Blue.png" alt="" (click)="addTimer()">
+                    <img src="Up Blue.png" alt="" id="down" (click)="removeTimer()">
+                </div>
+            </div>
+            <div class="meridianToggle">
+                <input type="checkbox" name="" id="meridian" [(ngModel)]="meredian">
+                <label for="meridian" class="button">
+                    <pre>   AM
+   PM</pre>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeFn">
+
+        <h6>Select Time Interval</h6>
+        <div class="timeSkip" *ngIf="timeSelection === '2Weeks' || timeSelection === 'Weekly'">
+            <p>Skip Weekends</p>
+
+            <!-- Toggle Checkbox -->
+            <div class="toggleContainer">
+                <input type="checkbox" name="" id="check" [(ngModel)]="skipWeekEnd">
+                <label for="check" class="button"></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="timeInterval">
+        <input type="radio" name="timeSelection" id="weekly" [(ngModel)]="timeSelection" value="Weekly"><label for="weekly">Weekly</label>
+        <p *ngIf="timeSelection === 'Weekly'">Select a day to send a weekly report</p>
+        <div *ngIf="timeSelection === 'Weekly' && skipWeekEnd==false" class="showWeeks">
+            <span *ngFor="let day of week; let i = index" (click)="handleSelection('day', i, day )" [ngClass]="{'active':clickedItemIndex === i}"> {{day}} </span>
+        </div>
+        <div *ngIf="timeSelection === 'Weekly' && skipWeekEnd==true" class="showWeeks">
+            <span *ngFor="let day of weekEnd; let i = index" (click)="handleSelection('day', i, day )" [ngClass]="{'active':clickedItemIndex === i}"> {{day}} </span>
+        </div>
+    </div>
+    
+    <div class="timeInterval">
+        <input type="radio" name="timeSelection" id="2weeks" [(ngModel)]="timeSelection" value="2Weeks"><label for="2weeks">Every 2 weeks</label>
+        <p *ngIf="timeSelection === '2Weeks'">Select the day to send a fornightly report</p>
+        <div *ngIf="timeSelection === '2Weeks' && skipWeekEnd==false" class="showWeeks">
+            <span *ngFor="let day of week; let i = index" (click)="handleSelection('TwoDay', i, day )" [ngClass]="{'active':clickedItemIndex === i}"> {{day}} </span>
+        </div>
+        <div *ngIf="timeSelection === '2Weeks' && skipWeekEnd==true" class="showWeeks">
+            <span *ngFor="let day of weekEnd; let i = index" (click)="handleSelection('TwoDay', i, day )" [ngClass]="{'active':clickedItemIndex === i}"> {{day}} </span>
+        </div>
+    </div>
+    
+    <div class="timeInterval">
+        <input type="radio" name="timeSelection" id="month" [(ngModel)]="timeSelection" value="Monthly"> <label for="month">Monthly</label> 
+        <p *ngIf="timeSelection === 'Monthly'">Select the date to send a monthly report</p>
+        <div *ngIf="timeSelection === 'Monthly'">
+            <app-calender></app-calender>
+        </div>
+    </div>
+        
+    <div class="timeInterval">
+        <input type="radio" name="timeSelection" id="quarterly" [(ngModel)]="timeSelection" value="quarter"> <label for="quarterly">Quarterly</label> 
+        <div *ngIf="timeSelection === 'quarter'" class="option-for-selection">
+            <ol>
+                <li (click)="handleSelection('LastQua', 0)" [ngClass]="{'active':activeIndex === 0}">Last day of the completed quarter </li>
+                <li (click)="handleSelection('FirstQua', 1)" [ngClass]="{'active':activeIndex === 1}">First day of the next quarter</li>
+                <li (click)="handleSelection('CustomQua', 2)" [ngClass]="{'active':activeIndex === 2}">Custom</li>
+                <div class="dateSelection"  *ngIf="customTime==='CustomQua' && timeSelection === 'quarter'">
+                    <app-calender></app-calender>
+                </div>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="timeInterval">
+        <input type="radio" name="timeSelection" id="year" [(ngModel)]="timeSelection" value="year"> <label for="year">Yearly</label> 
+        <div *ngIf="timeSelection === 'year'" class="option-for-selection">
+            <ol>
+                <li (click)="handleSelection('LastOfYear', 3)" [ngClass]="{'active':activeIndex === 3}">Last day of the year</li>
+                <li (click)="handleSelection('FirstOfYear', 4)" [ngClass]="{'active':activeIndex === 4}">First day of the year</li>
+                <li (click)="handleSelection('CustomYear', 5)" [ngClass]="{'active':activeIndex === 5}">Custom</li>
+                <div class="dateSelection" *ngIf="customTime==='CustomYear' && timeSelection === 'year'">
+                    <app-calender></app-calender>
+                </div>
+            </ol>
+        </div>
+    </div>
+
+    <div class="btns">
+        <button (click)="cancel()">Cancel</button>
+        <button (click)="confirmation()">Done</button>
+    </div>
+
+</div>

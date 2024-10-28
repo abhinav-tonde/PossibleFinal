@@ -1,0 +1,80 @@
+<div class="container">
+
+    <h2>Schedule Reports <img src="Info Dark.png" alt=""> </h2>
+    <h5>Select Required Report Types</h5>
+
+    <div class="options" *ngFor="let itr of selectReportType; let i = index">
+        <input type="checkbox" [(ngModel)]="selectedReportOptions[i]" [id]="itr.type"> 
+        <label [for]="itr.type">{{itr.type}}</label>
+    </div>
+
+    <div class="vehicleSelection" *ngIf="selectedReportOptions[1]">
+
+        <h5>Select Vehicles</h5>
+        
+        <div class="vehicleSection">
+            
+            <div class="selections">
+
+                <select name="" id="" [(ngModel)]="selectedVehicleOption" (change)="getSelectedVehicleOption()">
+                    <option value="all">All Vehicles</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Pune">Pune</option>
+                </select>
+
+                <img src="Search Blue.png" alt="" id="search">
+                
+                <input type="text" name="" id="" placeholder="Search" (change)="searchCar()" [(ngModel)]="searchParam">
+            </div>
+
+            <p>{{vehicles.length}}/{{vehiclesInfo.length}} Selected </p>
+
+            <div class="showVehicleInfo">
+                <div class="vehicleInfo" *ngFor="let info of vehiclesInfo; let i = index" [ngClass]="{'checked': info.isChecked}">
+                    <input type="checkbox" class="elem" [id]="info.vin" [(ngModel)]="selectedVehicle[i]" [checked]="info.isChecked" (change)="onCheckboxChange(info)">
+                    <label class="info" [for]="info.vin">
+                        <b> {{info.registration_number}} </b>
+                        <p> VIN: {{info.vin}} </p>
+                        <p> {{info.lob_name}} </p>
+                    </label>
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+
+    <div class="emailSection">
+
+        <div class="mailEntry">
+            <h5>Enter email ids</h5>
+            <button (click)="addInputField()"> 
+                <span *ngIf="showAdd"> + Add </span>  
+                <span *ngIf="!showAdd"> Cancel </span>
+            </button>
+        </div>
+
+        <div class="inputEmail" *ngIf="showInputField">
+            <form action="" [formGroup]="emailHandler">
+                <input type="text" formControlName="inputEmail" id="">
+                <button (click)="addEmail()">Add</button>
+            </form>
+        </div>
+
+        <div class="showInput">
+            <div class="enteredEmail" *ngFor="let email of emails">
+                <span> {{email}} </span>
+                <img src="Close White.png" (click)="removeEmail(email)">
+            </div>
+        </div>
+        
+        <div class="actionBtn">
+            <button id="cancelOp" (click)="activeModal.close('Close click')">Cancel</button>
+            <button class='deactive' (click)="openAnotherModel()" *ngIf="!isNextActive">Next > </button>
+            <button class='active' (click)="openAnotherModel()" *ngIf="isNextActive">Next > </button>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+.form-container {
+    width: 50vw;
+    height: 50vh;
+    padding: 10vh 5vw;
+
+    .form-control {
+        margin: 2vh 0;
+        border: none;
+        width: 100%;
+        display: flex;
+
+        label {
+            font-size: 3vh;
+            font-family: 400;
+            width: 35%;
+        }
+
+        input {
+            width: 65%;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+        }
+    }
+
+    #last {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+
+            width: 75%;
+            font-size: 2.5vh;
+            font-weight: 500;
+
+            span {
+                color: #101B73;
+            }
+
+        }
+
+        button{
+            height: 5.5vh;
+            width: 25%;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 5px 5px 5px gray, 15px 15px 15px gray;
+        }
+
+    }
+
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="heading">
+        <h5>Schedule Reports</h5>
+        <div class="right">
+            <img src="Edit Blue.png" alt=""><span> Edit</span>
+        </div>
+    </div>
+
+    <p> Your <b> {{type|typeFormatter}} </b> reports will be sent to </p>
+
+    <span> {{mail|mailFormatter}} </span>
+    <br>
+
+    <p> On the <b> {{day}} </b> of <b>{{schedule}},</b>
+        at <b> {{hr|number:"2.0"}}:{{min|number:'2.0'}} {{meredian|uppercase}} </b> </p>
+    <div class="btns">
+        <button  (click)="cancel()">Cancel</button>
+        <button (click)="confirm()">Confirm</button>
+    </div>
+</div>

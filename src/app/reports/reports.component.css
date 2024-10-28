@@ -1,0 +1,28 @@
+span{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+table{
+    width: 80vw;
+    margin-left: 10vw;
+}
+th{
+    width: 30%;
+}
+th, td{
+    border-bottom: 1px solid lightgray;
+    padding: 2vh;
+}
+
+td button{
+    width: 10vw;
+    height: 7vh;
+    font-size: 3vh;
+    border: none;
+    float: right;
+    background-color: white;
+    color: #101B73;
+    border: 1px #101B73 solid;
+    font-weight: 700;
+}

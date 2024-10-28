@@ -1,0 +1,267 @@
+h5 {
+    font: 600 2.5vh Open Sans
+}
+
+.container {
+
+    border-radius: 10px;
+    margin: auto;
+    padding: 2vh 5vh;
+    width: 40vw;
+    background-color: white;
+
+    .options {
+        input {
+            outline-color: #101B73;
+
+            &:active {
+                background-color: #101B73;
+            }
+        }
+
+        label {
+            padding-left: 3vh;
+            margin-top: 1.5vh;
+            font: 500 2vh Open Sans;
+        }
+    }
+
+    h2 {
+
+        font-weight: 600;
+        margin: 0;
+        font-size: 3vh;
+
+        img {
+            height: 3vh;
+        }
+    }
+
+    .vehicleSelection {
+
+        padding-top: 3vh;
+
+        .vehicleSection {
+            border: #c4c4c4 1px solid;
+            padding: 3vh;
+            width: 97%;
+            border-radius: 10px;
+
+            .selections {
+                display: flex;
+                align-items: center;
+
+                select {
+                    border: 1px gray solid;
+                    width: 45%;
+                    border-radius: 5px;
+                    height: 4vh;
+                    padding-left: 1.5vh;
+                    appearance: none;
+                }
+
+                img {
+                    position: relative;
+                    height: 3vh;
+                    left: 4.5vh;
+                    z-index: 9999;
+                }
+
+                input {
+                    /* margin-left: 1.5vw; */
+                    padding-left: 2.5vw;
+                    border: 1px gray solid;
+                    width: 50%;
+                    height: 4vh;
+                    border-radius: 5px;
+                }
+            }
+
+            p {
+                color: #747474;
+                font-size: 12px;
+                font-weight: 400;
+                font-family: Open Sans;
+            }
+
+
+            .showVehicleInfo {
+
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 1vh;
+                height: 22vh;
+                overflow: auto;
+                scrollbar-width: none;
+
+                .vehicleInfo {
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin-bottom: 2vh;
+                    overscroll-behavior: contain;
+
+                    input {
+                        width: 1vw;
+                        height: 3vh;
+                    }
+
+                    .info {
+                        font-family: Open Sans;
+
+                        p {
+                            color: gray;
+                            margin: 0;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: #EBF5FF;
+                        border-radius: 15px;
+                    }
+
+                    &.checked {
+                        background-color: #EBF5FF;
+                        border-radius: 15px;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .emailSection {
+        padding-top: 3vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .inputEmail {
+
+            form {
+                display: flex;
+                width: 70%;
+                justify-content: space-between;
+
+                input {
+                    background-color: white;
+                    border: 1px #c4c4c4 solid;
+                    height: 5vh;
+                    border-radius: 10px;
+                    width: 95%;
+                    padding-left: 1vw;
+                }
+
+                button {
+                    width: 25%;
+                    height: 5vh;
+                    padding: 0 2vw;
+                    color: #ddd;
+                    font-weight: 600;
+                    background-color: navy;
+                    border-radius: 10px;
+                    margin-left: 2vw;
+                }
+            }
+        }
+
+        .mailEntry {
+            justify-content: space-between;
+            display: flex;
+
+            h6 {
+                margin: 0;
+            }
+
+            button {
+                background-color: #ddd;
+                padding: 0.7vh 2.5vh;
+                border-radius: 10px;
+                border: none;
+
+                span {
+                    font-size: 1em;
+                    font-weight: 600;
+                    color: navy;
+                }
+            }
+
+        }
+
+        .showInput {
+            margin-top: 2vh;
+            height: 25vh;
+            border-radius: 20px;
+            border: 2px #ddd solid;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: start;
+            padding: 0 0.5vh;
+
+            .enteredEmail {
+                border-radius: 20px;
+                height: fit-content;
+                width: max-content;
+                padding: 1vh 3vh;
+                border: 2px #ddd solid;
+                margin-top: 0.5vh;
+                margin-right: 1vh;
+
+                img {
+                    margin-left: 2vh;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background-color: #101B73;
+                    width: 2vh;
+                }
+
+            }
+
+        }
+
+        .actionBtn {
+
+            margin-top: 2.5vh;
+            margin-left: 50%;
+            float: right;
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                font-size: 1.25em;
+                padding: 0.7vh 2.5vh;
+                border-radius: 7px;
+                border: none;
+            }
+
+            #cancelOp {
+                background-color: white;
+                color: navy;
+                border: 2px navy solid
+            }
+
+        }
+
+    }
+
+}
+
+.modal {
+    width: 40vw;
+}
+
+.active {
+    background-color: #101B73;
+    color: #ffffff;
+}
+
+.deactive {
+    background-color: #c4c4c4;
+    color: #ffffff;
+}

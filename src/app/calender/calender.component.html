@@ -1,0 +1,3 @@
+<div class="calender">
+    <div class="date" *ngFor="let number of dates; let i = index" (click)="storeDate(number, i)" [ngClass]="{'active': clickedItemIndex === i}"> {{number}} </div>
+</div>

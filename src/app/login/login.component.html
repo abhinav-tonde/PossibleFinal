@@ -1,0 +1,14 @@
+<div class="form-container">
+    <div class="form-control">
+        <label for="userId">Enter Email Id: </label>
+        <input type="text" id="userId" [(ngModel)]="userId">
+    </div>
+    <div class="form-control">
+        <label for="pswd">Enter Password: </label>
+        <input type="password" id="pswd" [(ngModel)]="userPswd">
+    </div>
+    <div class="form-control" id="last">
+        <p>Register <span>here</span>!</p>
+        <button (click)="login()">Login</button>
+    </div>
+</div>
